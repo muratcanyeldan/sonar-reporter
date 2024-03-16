@@ -1,0 +1,20 @@
+server:
+  port: 7001
+  shutdown: graceful
+  servlet:
+    context-path: /sonar
+
+spring:
+  jackson:
+    date-format: "dd-MM-yyyy hh:mm:ss"
+  application:
+    name: sonar-reporter
+
+sonar:
+  url: http://localhost:9000/
+  token: INSERT_YOUR_SONAR_TOKEN_HERE
+
+slack:
+  token: INSERT_YOUR_SLACK_TOKEN_HERE
+  channelId: INSERT_YOUR_CHANNEL_ID_HERE
+  username: Sonar Reporter
