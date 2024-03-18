@@ -1,6 +1,7 @@
 package com.sonar.reporter.service;
 
 import com.sonar.reporter.constants.SonarAPIConstants;
+import com.sonar.reporter.model.IssueChangelogResponse;
 import com.sonar.reporter.model.request.IssueSearchRequest;
 import com.sonar.reporter.model.response.IssueSearchResponse;
 import com.sonar.reporter.util.RequestUtil;
@@ -29,11 +30,27 @@ public class IssueService {
         RequestUtil.addItemToQueryParameters("ps", issueSearchRequest.getPs(), queryParams);
         RequestUtil.addItemToQueryParameters("impactSeverities", issueSearchRequest.getImpactSeverities(), queryParams);
         RequestUtil.addItemToQueryParameters("impactSoftwareQualities", issueSearchRequest.getImpactSoftwareQualities(), queryParams);
+        RequestUtil.addItemToQueryParameters("s", issueSearchRequest.getS(), queryParams);
+        RequestUtil.addItemToQueryParameters("asc", issueSearchRequest.getAsc(), queryParams);
+        RequestUtil.addItemToQueryParameters("resolved", issueSearchRequest.getResolved(), queryParams);
+        RequestUtil.addItemToQueryParameters("additionalFields", issueSearchRequest.getAdditionalFields(), queryParams);
 
         return restClient.get()
                 .uri(SonarAPIConstants.API_ISSUE_SEARCH, queryParams)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .body(IssueSearchResponse.class);
+    }
+
+    public IssueChangelogResponse getIssueChangelog(String issue) {
+
+        Map<String, String> queryParams = new HashMap<>();
+        RequestUtil.addItemToQueryParameters("issue", issue, queryParams);
+
+        return restClient.get()
+                .uri(SonarAPIConstants.API_ISSUE_CHANGELOG, queryParams)
+                .accept(MediaType.APPLICATION_JSON)
+                .retrieve()
+                .body(IssueChangelogResponse.class);
     }
 }
