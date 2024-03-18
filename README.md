@@ -29,3 +29,5 @@ cd sonar-reporter
 mvn clean install
 docker compose up -d
 ```
+
+You can find related Postman collection in the root directory of the project.
