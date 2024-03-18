@@ -15,7 +15,7 @@ The Sonar Reporting Application is a Java and Spring Boot project that generates
 
 ## Configuration
 
-Update the application.yml file with your SonarQube server details.
+Update the docker-compose.yml file with your SonarQube server details.
 Customize any other settings as needed.
 
 ## Build and Run
