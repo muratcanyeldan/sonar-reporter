@@ -15,4 +15,13 @@ public class RequestUtil {
             queryParameters.put(key, value);
         }
     }
+
+    public static String createURI(String serviceURI, Map<String, String> queryParams) {
+        StringBuilder url = new StringBuilder(serviceURI);
+        if (!queryParams.isEmpty()) {
+            url.append("?");
+        }
+        queryParams.forEach((key, value) -> url.append(key).append("=").append(value).append("&"));
+        return url.toString();
+    }
 }

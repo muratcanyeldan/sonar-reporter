@@ -24,7 +24,7 @@ public class MetricService {
         RequestUtil.addItemToQueryParameters("ps", availableMetricRequest.getPs(), queryParams);
 
         return restClient.get()
-                .uri(SonarAPIConstants.API_METRIC_SEARCH, queryParams)
+                .uri(RequestUtil.createURI(SonarAPIConstants.API_METRIC_SEARCH, queryParams))
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .body(MetricSearchResponse.class);

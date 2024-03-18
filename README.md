@@ -26,5 +26,5 @@ Follow the steps below to run the system locally.
 git clone https://github.com/muratcanyeldan/sonar-reporter.git
 cd sonar-reporter
 mvn clean install
-docker-compose up -d
+docker compose up -d
 ```

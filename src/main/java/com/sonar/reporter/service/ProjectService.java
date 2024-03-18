@@ -27,7 +27,7 @@ public class ProjectService {
         RequestUtil.addItemToQueryParameters("projects", projectListRequest.getProjects(), queryParams);
 
         return restClient.get()
-                .uri(SonarAPIConstants.API_PROJECT_SEARCH, queryParams)
+                .uri(RequestUtil.createURI(SonarAPIConstants.API_PROJECT_SEARCH, queryParams))
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .body(ProjectSearchResponse.class);

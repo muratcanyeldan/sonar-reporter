@@ -24,7 +24,7 @@ public class MeasureService {
         RequestUtil.addItemToQueryParameters("metricKeys", getMeasuresRequest.getMetricKeys(), queryParams);
 
         return restClient.get()
-                .uri(SonarAPIConstants.API_MEASURE_COMPONENT, queryParams)
+                .uri(RequestUtil.createURI(SonarAPIConstants.API_MEASURE_COMPONENT, queryParams))
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .body(MeasureResponse.class);

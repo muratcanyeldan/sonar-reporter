@@ -36,7 +36,7 @@ public class IssueService {
         RequestUtil.addItemToQueryParameters("additionalFields", issueSearchRequest.getAdditionalFields(), queryParams);
 
         return restClient.get()
-                .uri(SonarAPIConstants.API_ISSUE_SEARCH, queryParams)
+                .uri(RequestUtil.createURI(SonarAPIConstants.API_ISSUE_SEARCH, queryParams))
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .body(IssueSearchResponse.class);
@@ -48,7 +48,7 @@ public class IssueService {
         RequestUtil.addItemToQueryParameters("issue", issue, queryParams);
 
         return restClient.get()
-                .uri(SonarAPIConstants.API_ISSUE_CHANGELOG, queryParams)
+                .uri(RequestUtil.createURI(SonarAPIConstants.API_ISSUE_CHANGELOG, queryParams))
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
                 .body(IssueChangelogResponse.class);
