@@ -12,6 +12,7 @@ The Sonar Reporting Application is a Java and Spring Boot project that generates
 - `SonarQube API`
 - `Docker`
 - `Docker Compose`
+- `Slack API`
 
 ## Configuration
 
